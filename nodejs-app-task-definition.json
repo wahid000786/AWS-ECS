@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:851725559889:task-definition/nodejs-app-task-definition:2",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:851725559889:task-definition/nodejs-app-task-definition:7",
     "containerDefinitions": [
         {
             "name": "nodejs-app",
-            "image": "public.ecr.aws/x2n6j0i6/nodejs-app",
+            "image": "851725559889.dkr.ecr.us-east-1.amazonaws.com/nodejs-app",
             "cpu": 0,
             "portMappings": [
                 {
@@ -23,8 +23,8 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/nodejs-app-task-definition",
                     "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/nodejs-app-task-definition",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
                 },
@@ -37,7 +37,7 @@
     "taskRoleArn": "arn:aws:iam::851725559889:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::851725559889:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 2,
+    "revision": 7,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -48,10 +48,16 @@
             "name": "ecs.capability.execution-role-awslogs"
         },
         {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
             "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
@@ -77,7 +83,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-06-07T06:19:10.693Z",
+    "registeredAt": "2024-06-07T10:33:55.815Z",
     "registeredBy": "arn:aws:iam::851725559889:root",
     "tags": []
 }
